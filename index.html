@@ -425,8 +425,6 @@
   .project-preview .line-dim { opacity: 0.35; }
 
   /* CERTIFICATIONS */
-  #certifications {}
-
   .cert-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -549,6 +547,57 @@
     transition: color 0.2s;
   }
 
+  .hero-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* PHOTO CONTAINER */
+.hero-photo {
+  display: flex;
+  justify-content: center;
+}
+
+/* CREATIVE FRAME */
+.photo-frame {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  border: 1px solid var(--border);
+  padding: 12px;
+  background: var(--surface);
+}
+
+/* Accent offset border */
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--accent);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* IMAGE */
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Hover effect */
+.photo-frame:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
   .footer-links a:hover { color: var(--text); }
 
   @keyframes fadeUp {
@@ -600,31 +649,42 @@ padding:12px;border:1px solid var(--border);font-size:14px}
 </nav>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <p class="hero-tag fade-up">MCA Student · Open to Internships & Entry-Level Roles</p>
-      <h1 class="fade-up delay-1">
-        Hi, I'm <em>Utkarsh Nehwal.</em><br />
-      </h1>
-      <p class="hero-desc fade-up delay-2">
-        Software developer and data analyst with a passion for Python, Power BI, and AI. I turn data into decisions and ideas into working software.
-      </p>
-      <div class="hero-ctas fade-up delay-3">
-        <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="UTKARSH-NEHWAL.pdf" class="btn-secondary" download>Download Resume ↓</a>
-      </div>
-      <div class="hero-stack fade-up delay-4">
-        <span class="hero-stack-label">Stack</span>
-        <span class="stack-pill">Python</span>
-        <span class="stack-pill">MySQL</span>
-        <span class="stack-pill">Power BI</span>
-        <span class="stack-pill">HTML/CSS</span>
-        <span class="stack-pill">GitHub</span>
-      </div>
+<div class="hero-layout">
+  <!-- LEFT: PHOTO -->
+  <div class="hero-photo fade-up">
+    <div class="photo-frame">
+      <img src="nehwal.png" alt="Utkarsh Nehwal" />
     </div>
   </div>
-</section>
+
+  <!-- RIGHT: CONTENT -->
+  <div class="hero-inner">
+    <p class="hero-tag fade-up">MCA Student · Open to Internships & Entry-Level Roles</p>
+
+    <h1 class="fade-up delay-1">
+      Hi, I'm <em>Utkarsh Nehwal.</em><br />
+    </h1>
+
+    <p class="hero-desc fade-up delay-2">
+      Software developer and data analyst with a passion for Python, Power BI, and AI.
+      I turn data into decisions and ideas into working software.
+    </p>
+
+    <div class="hero-ctas fade-up delay-3">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="UTKARSH-NEHWAL.pdf" class="btn-secondary" download>Download Resume ↓</a>
+    </div>
+
+    <div class="hero-stack fade-up delay-4">
+      <span class="hero-stack-label">Stack</span>
+      <span class="stack-pill">Python</span>
+      <span class="stack-pill">MySQL</span>
+      <span class="stack-pill">Power BI</span>
+      <span class="stack-pill">HTML/CSS</span>
+      <span class="stack-pill">GitHub</span>
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -638,6 +698,7 @@ padding:12px;border:1px solid var(--border);font-size:14px}
         <p style="margin-bottom: 2rem;">I'm based in Meerut, India, and open to internships and entry-level roles in Software Development, Data Analytics, Software Testing, and Business Intelligence.</p>
         <a href="UTKARSH-NEHWAL.pdf" class="btn-primary" download>Download Resume ↓</a>
       </div>
+
       <div class="about-stats">
         <div class="stat-row">
           <div class="stat-num">3<span>+</span></div>
