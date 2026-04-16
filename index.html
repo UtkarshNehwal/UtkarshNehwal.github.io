@@ -599,7 +599,7 @@
       </p>
       <div class="hero-ctas fade-up delay-3">
         <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="https://github.com/UtkarshNehwal/UtkarshNehwal.github.io/blob/main/UTKARSH-NEHWAL.pdf" class="btn-secondary" download>Download Resume ↓</a>
+        <a href="UTKARSH-NEHWAL.pdf" class="btn-secondary" download>Download Resume ↓</a>
       </div>
       <div class="hero-stack fade-up delay-4">
         <span class="hero-stack-label">Stack</span>
@@ -623,7 +623,7 @@
         <p>I'm an MCA student (graduating 2026) at MIET, Meerut, with a strong foundation in computer applications and a genuine passion for software development and data visualisation.</p>
         <p>I'm skilled in Python development, Salesforce, MySQL, Power BI, and data cleaning & transformation — and I love working on projects where engineering meets insight.</p>
         <p style="margin-bottom: 2rem;">I'm based in Meerut, India, and open to internships and entry-level roles in Software Development, Data Analytics, Software Testing, and Business Intelligence.</p>
-        <a href="https://github.com/UtkarshNehwal/UtkarshNehwal.github.io/blob/main/UTKARSH-NEHWAL.pdf" class="btn-primary" download>Download Resume ↓</a>
+        <a href="UTKARSH-NEHWAL.pdf" class="btn-primary" download>Download Resume ↓</a>
       </div>
       <div class="about-stats">
         <div class="stat-row">
@@ -839,24 +839,28 @@
         <a href="https://linkedin.com/in/utkarshnehwal" class="contact-link" target="_blank">linkedin.com/in/utkarshnehwal</a>
         <a href="https://github.com/UtkarshNehwal" class="contact-link" target="_blank">github.com/UtkarshNehwal</a>
         <br/>
-        <a href="https://github.com/UtkarshNehwal/UtkarshNehwal.github.io/blob/main/UTKARSH-NEHWAL.pdf" class="btn-secondary" download style="margin-top: 0.5rem;">Download Resume ↓</a>
+        <a href="UTKARSH-NEHWAL.pdf" class="btn-secondary" download style="margin-top: 0.5rem;">Download Resume ↓</a>
       </div>
       <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Your name" required />
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="your@email.com" required />
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell me about the opportunity…" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="align-self: flex-start;">Send Message →</button>
-        <p id="form-msg" style="font-family:var(--mono);font-size:12px;color:var(--accent);display:none;">✓ Message sent! I'll be in touch soon.</p>
-      </form>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="name" placeholder="Your name" required />
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="your@email.com" required />
+  </div>
+
+  <div class="form-group">
+    <label>Message</label>
+    <textarea name="message" placeholder="Tell me about the opportunity…" required></textarea>
+  </div>
+       
+  <button type="submit" class="btn-primary">Send Message →</button>
+
+  <p id="form-msg" style="display:none;">✓ Message sent!</p>
+</form>
     </div>
   </div>
 </section>
@@ -892,6 +896,33 @@
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
+
+ <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  (function () {
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      e.target
+    ).then(
+      () => {
+        document.getElementById("form-msg").style.display = "block";
+        e.target.reset();
+      },
+      (error) => {
+        alert("Failed to send message ❌");
+        console.error(error);
+      }
+    );
+  }
+</script>
 </script>
 </body>
 </html>
