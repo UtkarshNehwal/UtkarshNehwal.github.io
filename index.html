@@ -38,7 +38,7 @@
     background: rgba(247,246,242,0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    
     z-index: 100;
     padding: 0 2rem;
     height: 56px;
@@ -947,49 +947,21 @@ padding:12px;border:1px solid var(--border);font-size:14px}
     <a href="#hero">Back to top ↑</a>
   </div>
 </footer>
-<!-- ===== CONTACT FORM ===== -->
-<section id="contact">
-  <div class="container">
-    <h2>Contact Me</h2>
-
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Your name" required />
-      </div>
-
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="your@email.com" required />
-      </div>
-
-      <div class="form-group">
-        <label>Message</label>
-        <textarea name="message" placeholder="Tell me about the opportunity…" required></textarea>
-      </div>
-
-      <button type="submit" class="btn-primary">Send Message →</button>
-      <p id="form-msg" style="display:none;color:green;">✓ Message sent successfully!</p>
-    </form>
-  </div>
-</section>
 
 <!-- ===== EMAILJS SCRIPT (CORRECT PLACE) ===== -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-  // Initialize EmailJS
   (function () {
-    emailjs.init("Jr8EbM-n2T8zorOHr"); // your PUBLIC KEY
+    emailjs.init("Jr8EbM-n2T8zorOHr"); 
   })();
-
-  // Handle form submit
+ 
   function handleSubmit(e) {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_mgbmqwh",      // Service ID
-      "template_z2v79eg",     // Template ID
+      "service_mgbmqwh",      
+      "template_z2v79eg",     
       e.target
     ).then(
       function () {
