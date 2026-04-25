@@ -1,4 +1,3 @@
-<script>
   (function () {
     emailjs.init("Jr8EbM-n2T8zorOHr"); 
   })();
@@ -21,4 +20,3 @@
       }
     );
   }
-</script>
